@@ -1,0 +1,15 @@
+name = "Python"
+grammar = "python"
+path_suffixes = ["py"]
+line_comments = ["#"]
+autoclose_before = "\"}])'`"
+brackets = [
+    { start = "{", end = "}", close = true, newline = false },
+    { start = "[", end = "]", close = true, newline = false },
+    { start = "(", end = ")", close = true, newline = false },
+    { start = "$", end = "$", close = true, newline = false },
+    { start = "\"", end = "\"", close = true, newline = false },
+    { start = "'", end = "'", close = true, newline = false },
+    { start = "`", end = "`", close = true, newline = false },
+    { start = "``", end = "''", close = true, newline = false },
+]
