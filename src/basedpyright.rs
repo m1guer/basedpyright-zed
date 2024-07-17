@@ -1,8 +1,8 @@
 use zed_extension_api as zed;
 
-struct BasedPyrightS;
+struct BasedPyright;
 
-impl zed::Extension for BasedPyrightS {
+impl zed::Extension for BasedPyright {
     fn new() -> Self {
         Self {}
     }
@@ -12,14 +12,14 @@ impl zed::Extension for BasedPyrightS {
         worktree: &zed_extension_api::Worktree,
     ) -> zed_extension_api::Result<zed_extension_api::Command> {
         let path = worktree
-            .which("basedpyright")
+            .which("basedpyright-langserver")
             .ok_or_else(|| "basedpyright must be installed and avaible in $PATH.".to_string())?;
         Ok(zed::Command {
             command: path,
-            args: vec![],
+            args: vec!["--stdio".to_string(), Default::default()],
             env: Default::default(),
         })
     }
 }
 
-zed::register_extension!(BasedPyrightS);
+zed::register_extension!(BasedPyright);
