@@ -1,4 +1,4 @@
-id = "python"
+id = "basedpyright"
 name = "BasedPyright"
 description = "BasedPyright support."
 version = "0.0.2"
