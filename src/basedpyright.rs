@@ -13,7 +13,7 @@ impl zed::Extension for BasedPyright {
     ) -> zed_extension_api::Result<zed_extension_api::Command> {
         let path = worktree
             .which("basedpyright-langserver")
-            .ok_or_else(|| "basedpyright must be installed and avaible in $PATH.".to_string())?;
+            .ok_or_else(|| "basedpyright must be installed and available in $PATH.".to_string())?;
         Ok(zed::Command {
             command: path,
             args: vec!["--stdio".to_string(), Default::default()],
