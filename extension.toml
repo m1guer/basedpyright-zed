@@ -9,7 +9,3 @@ repository = "https://github.com/m1guer/basedpyright-zed"
 [language_servers.basedpyright]
 name = "BasedPyright"
 languages = ["Python"]
-
-[grammars.python]
-repository = "https://github.com/tree-sitter/tree-sitter-python"
-commit = "0dee05ef958ba2eae88d1e65f24b33cad70d4367"
