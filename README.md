@@ -18,6 +18,30 @@ Disable `pyright` and enable `basedpyright` in your settings.
   "languages": {
     "Python": {
       "language_servers": ["basedpyright", "!pyright"]
+  },
+}
+```
+
+## Configure
+
+Configure under `lsp.basedpyright.settings` as required.
+
+```jsonc
+{
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        },
+        "basedpyright.analysis": {
+          "diagnosticMode": "workspace",
+          "inlayHints": {
+            "callArgumentNames": false
+          }
+        }
+      }
+    }
   }
 }
 ```
