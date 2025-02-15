@@ -11,13 +11,14 @@ impl zed::Extension for BasedPyright {
         _language_server_id: &zed_extension_api::LanguageServerId,
         worktree: &zed_extension_api::Worktree,
     ) -> zed_extension_api::Result<zed_extension_api::Command> {
+        let env = worktree.shell_env();
         let path = worktree
             .which("basedpyright-langserver")
             .ok_or_else(|| "basedpyright must be installed and available in $PATH.".to_string())?;
         Ok(zed::Command {
             command: path,
             args: vec!["--stdio".to_string(), Default::default()],
-            env: Default::default(),
+            env: env,
         })
     }
     // ref https://github.com/zed-industries/zed/blob/main/extensions/ruff/src/ruff.rs

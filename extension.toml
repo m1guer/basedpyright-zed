@@ -1,7 +1,7 @@
 id = "basedpyright"
 name = "BasedPyright"
 description = "BasedPyright support."
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["Jose Miguel <miguelpintojose00@gmail.com>"]
 repository = "https://github.com/m1guer/basedpyright-zed"
