@@ -12,6 +12,20 @@ impl zed::Extension for BasedPyright {
         worktree: &zed_extension_api::Worktree,
     ) -> zed_extension_api::Result<zed_extension_api::Command> {
         let env = worktree.shell_env();
+
+        if let Ok(lsp_settings) = LspSettings::for_worktree("basedpyright", worktree) {
+            if let Some(binary) = lsp_settings.binary {
+                if let Some(path) = binary.path {
+                    let args = binary.arguments.unwrap_or(vec!["--stdio".to_string()]);
+                    return Ok(zed::Command {
+                        command: path,
+                        args,
+                        env,
+                    });
+                }
+            }
+        }
+
         let path = worktree
             .which("basedpyright-langserver")
             .ok_or_else(|| "basedpyright must be installed and available in $PATH.".to_string())?;

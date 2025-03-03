@@ -26,10 +26,16 @@ Disable `pyright` and enable `basedpyright` in your settings.
 
 Configure under `lsp.basedpyright.settings` as required.
 
+The "binary" setting is optional, if not set, `basedpyright` will be searched for in your `PATH`.
+
 ```jsonc
 {
   "lsp": {
     "basedpyright": {
+      "binary": {
+        "path": ".venv/bin/basedpyright-langserver",
+        "arguments": ["--stdio"]
+      },
       "settings": {
         "python": {
           "pythonPath": ".venv/bin/python"
